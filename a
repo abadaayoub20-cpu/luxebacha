@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوكس باشا | الكنادرا المغربية الأصيلة</title>
+    
+    <!-- Fonts for Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #C5A059; /* Gold */
+            --secondary-color: #F9F7F2; /* Soft Beige */
+            --accent-blue: #87CEEB; /* Sky Blue Accent */
+            --dark-text: #1a1a1a;
+            --light-text: #555555;
+            --white: #ffffff;
+            --font-heading: 'Tajawal', sans-serif;
+            --font-body: 'Cairo', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--secondary-color);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding { padding: 80px 0; }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border: 1px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            font-family: var(--font-body);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-filled {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-filled:hover {
+            background: #b08d48;
+            border-color: #b08d48;
+        }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-text);
+        }
+        
+        .logo span { color: var(--primary-color); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover { color: var(--primary-color); }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 1.1rem;
+        }
+
+        .mobile-toggle { display: none; cursor: pointer; font-size: 1.5rem; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(to left, rgba(249,247,242,0.95) 0%, rgba(249,247,242,0) 100%);
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            color: var(--accent-blue);
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-image {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Decorative Gold Line */
+        .gold-line {
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* --- PRODUCTS --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--white);
+            padding: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: rgba(197, 160, 89, 0.3);
+        }
+
+        .product-img-wrapper {
+            height: 350px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .product-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* --- CRAFTSMANSHIP --- */
+        .craftsmanship {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .craft-img img {
+            width: 100%;
+            border-radius: 4px;
+            box-shadow: -20px 20px 0px var(--primary-color);
+        }
+
+        .craft-text h3 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .craft-text p {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        /* --- SIZE GUIDE & SHIPPING --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-box {
+            background: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .info-box i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+        
+        th { color: var(--primary-color); }
+
+        /* --- REVIEWS --- */
+        .reviews-bg {
+            background-color: #EBE6DE;
+        }
+
+        .review-card {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .stars { color: var(--primary-color); margin-bottom: 15px; }
+        
+        .review-text {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a1a1a;
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #aaa; font-size: 0.9rem; }
+        .footer-col ul li a:hover { color: var(--white); }
+
+        .copyright {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* --- WHATSAPP FLOAT --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .navbar { position: relative; }
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                display: none;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-toggle { display: block; }
+            
+            .hero { min-height: auto; padding: 100px 0; text-align: center; background: var(--secondary-color); }
+            .hero-image { position: relative; width: 100%; height: 400px; margin-top: 40px; }
+            .hero h1 { font-size: 2.2rem; }
+            
+            .craftsmanship, .info-grid, .footer-grid { grid-template-columns: 1fr; }
+            
+            .whatsapp-float { width: 50px; height: 50px; font-size: 24px; right: 20px; bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">لوكس <span>باشا</span></a>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#collection">المجموعة</a></li>
+                    <li><a href="#craftsmanship">حرفنا</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-shopping-bag"></i>
+                    <div class="mobile-toggle" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1594938298603-c8148c472857?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="كنادرا مغربية مزخرفة">
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-tag">التميز والأناقة</span>
+                <h1> الكنادرا المغربي<br>بعناصر الأزرق السماوي</h1>
+                <p>اكتشف سحر التقاليد المغربية مع كنادرا المزينة يدوياً بخيوط ذهبية وزرقاء. قطعة فريدة من نوعها مصنوعة بيد حرفيين مغاربة.</p>
+                
+                <div class="gold-line"></div>
+                <a href="#collection" class="btn btn-filled">تصفح المجموعة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT COLLECTION -->
+    <section id="collection" class="section-padding">
+        <div class="container">
+            <span class="section-subtitle">مجموعتنا الحصرية</span>
+            <h2 class="section-title">أحدث الكنادرة</h2>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c472857?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="كنادرا أزرق">
+                    </div>
+                    <h3 class="product-title">كنادرا الأزرق السماوي</h3>
+                    <span class="product-price">650 DH</span>
+                    <button class="btn">اطلب عبر واتساب</button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="كنادرا أبيض">
+                    </div>
+                    <h3 class="product-title">كنادرا كلاسيكي أبيض</h3>
+                    <span class="product-price">550 DH</span>
+                    <button class="btn">اطلب عبر واتساب</button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1603251579437-804b1f9d9d36?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="كنادرا فاخر">
+                    </div>
+                    <h3 class="product-title">كنادرا ذهبي فاخر</h3>
+                    <span class="product-price">850 DH</span>
+                    <button class="btn">اطلب عبر واتساب</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRAFTSMANSHIP -->
+    <section id="craftsmanship" class="section-padding" style="background-color: #fff;">
+        <div class="container">
+            <div class="craftsmanship">
+                <div class="craft-text">
+                    <span class="section-subtitle">تراث وحرفية</span>
+                    <h3>حرفتنا اليدوية</h3>
+                    <p>كل كنادرا تحمل في طياتها تاريخ عائلة باشا العريقة. نستخدم أجود أنواع القطن والحرير، ونزين كل قطعة يدوياً بخيوط ذهبية وزرقاء بواسطة حرفيين موهوبين يورثون هذه الحرفة جيلاً بعد جيل.</p>
+                    <p>نسعى دائماً لتقديم منتج يعكس هوية التراث المغربي الأصيل بأناقة عصرية تناسب الرجل العصري.</p>
+                    <a href="#" class="btn btn-filled">اقرأ قصتنا</a>
+                </div>
+                <div class="craft-img">
+                    <img src="https://images.unsplash.com/photo-1576496838701-5
